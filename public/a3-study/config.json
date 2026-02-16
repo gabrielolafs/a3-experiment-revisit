@@ -27,7 +27,7 @@
       "path": "a3-study/introduction.md",
       "response": []
     },
-    "question-set-1": {
+    "bar-chart": {
       "type": "website",
       "path": "a3-study/assets/barchart.html",
       "instruction": "Answer the question below.",
@@ -36,7 +36,7 @@
       },
       "response": [
         {
-          "id": "bar-chart",
+          "id": "bar-chart-question",
           "prompt": "What percentage is the smaller value (marked with a red arrow) relative to the larger value (marked with a black arrow)?",
           "required": true,
           "location": "sidebar",
@@ -46,7 +46,7 @@
       ],
       "correctAnswer": [
         {
-          "id": "bar-chart",
+          "id": "bar-chart-question",
           "answer": "Most of the population"
         }
       ],
@@ -54,7 +54,7 @@
       "allowFailedTraining": true,
       "trainingAttempts": 1
     },
-    "question-set-2": {
+    "pie-chart": {
       "type": "website",
       "path": "a3-study/assets/piechart.html",
       "instruction": "Answer the question below.",
@@ -63,7 +63,7 @@
       },
       "response": [
         {
-          "id": "pie-chart",
+          "id": "pie-chart-question",
           "prompt": "What percentage is the smaller value (marked with a red circle) relative to the larger value (marked with a black circle)?",
           "required": true,
           "location": "sidebar",
@@ -73,7 +73,7 @@
       ],
       "correctAnswer": [
         {
-          "id": "pie-chart",
+          "id": "pie-chart-question",
           "answer": "Disease A"
         }
       ],
@@ -81,7 +81,7 @@
       "allowFailedTraining": true,
       "trainingAttempts": 1
     },
-    "question-set-3": {
+    "stacked-bar-chart": {
       "type": "website",
       "path": "a3-study/assets/stackedbarchart.html",
       "instruction": "Answer the question below.",
@@ -90,7 +90,7 @@
       },
       "response": [
         {
-          "id": "stacked-bar-chart",
+          "id": "stacked-bar-chart-question",
           "prompt": "What percentage is the smaller value (marked with a red arrow) relative to the larger value (marked with a black arrow)?",
           "required": true,
           "location": "sidebar",
@@ -100,7 +100,7 @@
       ],
       "correctAnswer": [
         {
-          "id": "stacked-bar-chart",
+          "id": "stacked-bar-chart-question",
           "answer": "A small amount of the population"
         }
       ],
@@ -116,15 +116,77 @@
       {
         "order": "random",
         "components": [
-          "question-set-1",
-          "question-set-2",
-          "question-set-3",
-          "question-set-1",
-          "question-set-2",
-          "question-set-3",
-          "question-set-1",
-          "question-set-2",
-          "question-set-3"
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+          "bar-chart",
+
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+          "pie-chart",
+
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart",
+          "stacked-bar-chart"
         ]
       },
     ]
