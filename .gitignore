@@ -41,4 +41,3 @@ supabase/volumes/db/data
 
 # seems weird that these were not on the git ignore before?
 .env
-yarn.lock
