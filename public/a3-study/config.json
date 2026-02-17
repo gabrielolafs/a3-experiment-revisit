@@ -36,18 +36,20 @@
       },
       "response": [
         {
-          "id": "bar-chart-question",
+          "id": "guess-percent",
           "prompt": "What percentage is the smaller value (marked with a red arrow) relative to the larger value (marked with a black arrow)?",
           "required": true,
           "location": "sidebar",
           "type": "shortText",
-          "placeholder": "Enter number here"
-        }
-      ],
-      "correctAnswer": [
+          "placeholder": "Enter percent here"
+        },
         {
-          "id": "bar-chart-question",
-          "answer": "Most of the population"
+          "id": "true-percent",
+          "prompt": "",
+          "required": false,
+          "location": "belowStimulus",
+          "type": "reactive",
+          "hidden": true
         }
       ],
       "provideFeedback": false,
@@ -63,18 +65,12 @@
       },
       "response": [
         {
-          "id": "pie-chart-question",
+          "id": "guess-percent",
           "prompt": "What percentage is the smaller value (marked with a red circle) relative to the larger value (marked with a black circle)?",
           "required": true,
           "location": "sidebar",
           "type": "shortText",
           "placeholder": "Enter number here"
-        }
-      ],
-      "correctAnswer": [
-        {
-          "id": "pie-chart-question",
-          "answer": "Disease A"
         }
       ],
       "provideFeedback": false,
@@ -90,18 +86,12 @@
       },
       "response": [
         {
-          "id": "stacked-bar-chart-question",
+          "id": "guess-percent",
           "prompt": "What percentage is the smaller value (marked with a red arrow) relative to the larger value (marked with a black arrow)?",
           "required": true,
           "location": "sidebar",
           "type": "shortText",
           "placeholder": "Enter number here"
-        }
-      ],
-      "correctAnswer": [
-        {
-          "id": "stacked-bar-chart-question",
-          "answer": "A small amount of the population"
         }
       ],
       "provideFeedback": false,

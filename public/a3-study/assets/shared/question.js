@@ -4,14 +4,20 @@ export default class Question {
         this.indexesToCompare = this.genBarsToCompare();
     };
 
-    judge(inputPercent) {
+    judge(inputPercent) { // not being used currently as it cannot be done live
         return Math.log2(Math.abs(inputPercent - this.truePercent) + 0.125);
     };
 
+    get lesserVal() {
+        return this.dataPoints[this.indexesToCompare[0]];
+    }
+
+    get greaterVal() {
+        return this.dataPoints[this.indexesToCompare[1]];
+    }
+
     get truePercent() {
-        const lesserVal = this.dataPoints[this.indexesToCompare[0]];
-        const greaterVal = this.dataPoints[this.indexesToCompare[1]];
-        const diffPercent = 100 * ((greaterVal - lesserVal) / greaterVal);
+        const diffPercent = 100 * ((this.greaterVal - this.lesserVal) / this.greaterVal);
         return Math.round(diffPercent * 100) / 100;
     };
 

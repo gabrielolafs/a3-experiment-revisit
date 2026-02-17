@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <div id="container"></div>
+<script src="../../revisitUtilities/revisit-communicate.js"></script>
 <script type="module">
-
     import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-
     import Question from "./shared/question.js";
 
     const q = new Question();
+
+    Revisit.postAnswers({
+        'true-percent': q.truePercent,
+        'lesser-value': q.lesserVal,
+        'greater-value': q.greaterVal,
+        'chart-type': 'stacked-bar'
+    });
 
     const container = document.getElementById("container");
 
