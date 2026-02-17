@@ -1,30 +1,29 @@
-# reVISit study – Interactive, Web-Based User Studies.  
+# a3
 
-let me merge now
-todo: we have to change this up a lot
+https://gabrielolafs.githu.io/a3-experiment-revisit/
 
-Create your own interactive, web-based data visualization user studies by cloning/forking and editing configuration files and adding stimuli in the `public` folder. 
+For our study, we replicated the 1984 Cleveland-McGill study on comparing how intuitive different types of charts are to comprehend and analyze. The visualizations we chose to test are bar charts, pie charts, and stacked bar charts. We chose these types of charts because they all have the similar purpose of comparing the numerical values of different categories, yet each of them represent the same data in their own ways. With our replication study, we aim to have users estimate the different in percentage between two values on each type of chart to test which of these three is the best choice for making a readable graph.
 
-reVISit introduces reVISit.spec a DSL for specifying study setups (consent forms, training, trials, etc) for interactive web based studies. You describe your experimental setup in reVISit.spec, add your stimuli as images, forms, html pages, or React components, build and deploy – and you're ready to run your study. For tutorials and documentation, see the [reVISit website](https://revisit.dev). 
+# Charts in our study
 
-## Build Instructions
+## Experiment view
 
-To run this demo experiment locally, you will need to install node on your computer. 
+!["Experiment view"](assets/a3-experiment-view.png)
 
-* Clone `https://github.com/revisit-studies/study`
-* Run `yarn install`. If you don't have yarn installed, run `npm i -g yarn`. 
-* To run locally, run `yarn serve`.
-* Go to [http://localhost:8080](http://localhost:8080) to view it in your browser. The page will reload when you make changes. 
+## Bar chart example
 
-## Release Instructions
+!["Bar chart"](assets/a3-bar-chart.png)
 
-Releasing reVISit.dev happens automatically when a PR is merged into the `main` branch. The name of the pull request should be the title of the release, e.g. `v1.0.0`. Releasing creates a tag with the same name as the PR, but the official GitGub release should be created manually. The `main` branch is protected and requires two reviews before merging.
+## Pie chart example
+!["Pie chart"](assets/a3-pie-chart.png)
 
-The workflow for release looks as follows:
-Develop features on feature branch
-| PRs
-Dev branch
-| PR (1 per release)
-Main branch
-| Run release workflow on merge
-References are updated and commit is tagged
+## Stacked bar chart example
+!["Stacked bar chart"](assets/a3-stacked-bar-chart.png)
+
+## Technical Achievements
+**Object-Oriented Data Storage**: Since the answers to each question is generated upon the user reaching said question, we needed a way to store not only the user's answer, but the data points that were selected and the percentage different of the smaller and larger value. To store all this data at once upon submission, we submit each answered question as an object with these values as attributes.
+**Wrote Vega Number Line Creation Code for MSZ Team**: Zach is part of the MQP that everyone on the MSZ team is on, and he developed a script that will take in some parameters in a JSON object in the form of a grammar and create a number line in Vega from it. Although it's for another project, this code made the process of developing number line visualizations to test a lot smoother for that team, as creating number lines from scratch in Vega or D3 would be a lot more time-consuming otherwise.
+
+## Design Achievements
+**Arrows Pointing to Data**: The examples for bar charts in the Cleveland-McGill study have the two values that the question is asking about indicated with small circles on the relevant bars. While we felt this worked for the pie charts, we found that having arrows pointing to the relevant bars of the bar charts and stacked bar charts makes the question take even less time to process. We also made the smaller arrow red and the larger arrow black to assist in visualizing what the question is asking even more. While applying unique colors to the bars for comparison would make the task for our test too easy, applying colors to these arrows still grabs the user's attention the same way and points right to what's relevant without affecting the reliability of the study.
+**Ergonomic Design**: We originally had our questions in the sidebar, as it nicely separates the question from the visualization into their own sections. However, we noticed that as each person answers 60 questions, having to drag your mouse between the sidebar on the left and the next button on the right that many times in succession can be straining. To remedy this, we changed the position of the questions to be below the visualizations so that the mouse movement between the text box and the next button is minimal. The size of each visualization was also adjusted to fit its section exactly so that the user doesn't need to move the mouse up to scroll down large charts, nor do they have to strain their eyes from reading charts that are too small.
