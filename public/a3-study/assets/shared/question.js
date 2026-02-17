@@ -4,6 +4,12 @@ export default class Question {
         this.indexesToCompare = this.genBarsToCompare();
     };
 
+    // js does not have alt constructors. really annoying. this is how i am planning on doing it (claude told me how the override works and I plan on implementing the json parsing)
+    // constructor(overrides = {}) {
+    //     this.dataPoints = overrides.dataPoints ?? this.genData();
+    //     this.indexesToCompare = overrides.indexesToCompare ?? this.genBarsToCompare();
+    // }
+
     judge(inputPercent) { // not being used currently as it cannot be done live
         return Math.log2(Math.abs(inputPercent - this.truePercent) + 0.125);
     };
