@@ -4,12 +4,11 @@
 
     import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
-    import * as randomData from "./shared/genRandomData.js";
+    import Question from "./shared/question.js";
+
+    const q = new Question();
 
     const container = document.getElementById("container");
-
-    let dataPoints = randomData.getData();
-    let compareIndexes = randomData.getBarsToCompare(dataPoints);
 
     //set dimensions
     const width = 350;
@@ -19,11 +18,11 @@
     const marginBottom = 30;
     const marginLeft = 40;
 
-    let pointsSum = d3.sum(dataPoints);
+    let pointsSum = d3.sum(q.dataPoints);
 
     //save start and end of each bar
     let totalLength = 0;
-    const stacked = dataPoints.map((d, i) => {
+    const stacked = q.dataPoints.map((d, i) => {
         const startValue = totalLength;
         totalLength += d;
         return {
@@ -36,7 +35,7 @@
 
 
     const x = d3.scaleLinear()
-        .domain([0, dataPoints.length])
+        .domain([0, q.dataPoints.length])
         .range([marginLeft, width - marginRight]);
 
     const y = d3.scaleLinear()
@@ -65,22 +64,22 @@
     svg.append("g")
         .attr("fill", "#f04400")
         .selectAll()
-        .data(stacked.filter(d => compareIndexes.includes(d.index)))
+        .data(stacked.filter(d => q.indexesToCompare.includes(d.index)))
         .join("rect")
         .attr("x", marginLeft + (barWidth / 2) + 200)
         .attr("y", d => (y(d.end) + (y(d.start) - y(d.end)) / 2) + -10)
         .attr("height", 20)
         .attr("width", 120)
-        .attr("fill", d => (d.index === Math.min(...compareIndexes)) ? "#f04400" : "black");
+        .attr("fill", d => (d.index === q.indexesToCompare[0]) ? "#f04400" : "black");
 
     svg.append("g")
         .attr("fill", "#f04400")
         .selectAll("path")
-        .data(stacked.filter(d => compareIndexes.includes(d.index)))
+        .data(stacked.filter(d => q.indexesToCompare.includes(d.index)))
         .join("path")
         .attr("d", d3.symbol().type(d3.symbolTriangle).size(500))
         .attr("transform", d => `translate(${marginLeft + (barWidth / 2) + 200}, ${y(d.end) + (y(d.start) - y(d.end)) / 2}) rotate(270)`)
-        .attr("fill", d => (d.index === Math.min(...compareIndexes)) ? "#f04400" : "black");
+        .attr("fill", d => (d.index === q.indexesToCompare[0]) ? "#f04400" : "black");
 
     container.append(svg.node());
 
