@@ -17,8 +17,8 @@
     const container = document.getElementById("container");
 
     //set dimensions
-    const width = 350;
-    const height = 600;
+    const width = 250;
+    const height = 500;
     const marginTop = 20;
     const marginRight = 20;
     const marginBottom = 30;
@@ -71,10 +71,10 @@
         .selectAll()
         .data(stacked.filter(d => q.indexesToCompare.includes(d.index)))
         .join("rect")
-        .attr("x", marginLeft + (barWidth / 2) + 200)
+        .attr("x", marginLeft + (barWidth / 2) + 130)
         .attr("y", d => (y(d.end) + (y(d.start) - y(d.end)) / 2) + -10)
         .attr("height", 20)
-        .attr("width", 120)
+        .attr("width", 90)
         .attr("fill", d => (d.index === q.indexesToCompare[0]) ? "#f04400" : "black");
 
     svg.append("g")
@@ -83,7 +83,7 @@
         .data(stacked.filter(d => q.indexesToCompare.includes(d.index)))
         .join("path")
         .attr("d", d3.symbol().type(d3.symbolTriangle).size(500))
-        .attr("transform", d => `translate(${marginLeft + (barWidth / 2) + 200}, ${y(d.end) + (y(d.start) - y(d.end)) / 2}) rotate(270)`)
+        .attr("transform", d => `translate(${marginLeft + (barWidth / 2) + 130}, ${y(d.end) + (y(d.start) - y(d.end)) / 2}) rotate(270)`)
         .attr("fill", d => (d.index === q.indexesToCompare[0]) ? "#f04400" : "black");
 
     container.append(svg.node());

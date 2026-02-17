@@ -37,9 +37,9 @@
       "response": [
         {
           "id": "guess-percent",
-          "prompt": "What percentage is the smaller value (marked with a red arrow) relative to the larger value (marked with a black arrow)?",
+          "prompt": "What is the difference in percentage between the smaller value (marked with a red arrow) and the larger value (marked with a black arrow)?",
           "required": true,
-          "location": "sidebar",
+          "location": "belowStimulus",
           "type": "shortText",
           "placeholder": "Enter percent here"
         },
@@ -66,9 +66,9 @@
       "response": [
         {
           "id": "guess-percent",
-          "prompt": "What percentage is the smaller value (marked with a red circle) relative to the larger value (marked with a black circle)?",
+          "prompt": "What is the difference in percentage between the smaller value (marked with a red circle) and the larger value (marked with a black circle)?",
           "required": true,
-          "location": "sidebar",
+          "location": "belowStimulus",
           "type": "shortText",
           "placeholder": "Enter number here"
         }
@@ -87,9 +87,9 @@
       "response": [
         {
           "id": "guess-percent",
-          "prompt": "What percentage is the smaller value (marked with a red arrow) relative to the larger value (marked with a black arrow)?",
+          "prompt": "What is the difference in percentage between the smaller value (marked with a red arrow) and the larger value (marked with a black arrow)?",
           "required": true,
-          "location": "sidebar",
+          "location": "belowStimulus",
           "type": "shortText",
           "placeholder": "Enter number here"
         }
