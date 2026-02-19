@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<div id="container"></div>
+<script src="../../revisitUtilities/revisit-communicate.js"></script>
+<script type="module">
+    import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+    import Question from "./shared/question.js";
+
+    const q = new Question();
+
+    Revisit.postAnswers({
+        'true-percent': q.truePercent,
+        'lesser-value': q.lesserVal,
+        'greater-value': q.greaterVal,
+        'chart-type': 'stacked-bar'
+    });
+
+    const container = document.getElementById("container");
+
+    //set dimensions
+    const width = 250;
+    const height = 500;
+    const marginTop = 20;
+    const marginRight = 20;
+    const marginBottom = 30;
+    const marginLeft = 40;
+
+    let pointsSum = d3.sum(q.dataPoints);
+
+    //save start and end of each bar
+    let totalLength = 0;
+    const stacked = q.dataPoints.map((d, i) => {
+        const startValue = totalLength;
+        totalLength += d;
+        return {
+            value: d,
+            start: startValue,
+            end: totalLength,
+            index: i
+        }
+    })
+
+    const x = d3.scaleLinear()
+        .domain([0, q.dataPoints.length])
+        .range([marginLeft, width - marginRight]);
+
+    const y = d3.scaleLinear()
+        .domain([0, pointsSum])
+        .range([height - marginBottom, marginTop]);
+
+    const svg = d3.create("svg")
+        .attr("width", width + 200)
+        .attr("height", height);
+
+    const barWidth = (width - marginLeft - marginRight);
+
+    svg.append("g")
+        .attr("fill", "#c2d4f2")
+        .selectAll()
+        .data(stacked)
+        .join("rect")
+        .attr("stroke", "black")
+        .attr("stroke-width", 4)
+        .attr("x", marginLeft)
+        .attr("y", d => y(d.end))
+        .attr("rx", 1)
+        .attr("height", d => y(d.start) - y(d.end))
+        .attr("width", barWidth)
+
+    svg.append("g")
+        .attr("fill", "#f04400")
+        .selectAll()
+        .data(stacked.filter(d => q.indexesToCompare.includes(d.index)))
+        .join("rect")
+        .attr("x", marginLeft + (barWidth / 2) + 130)
+        .attr("y", d => (y(d.end) + (y(d.start) - y(d.end)) / 2) + -10)
+        .attr("height", 20)
+        .attr("width", 90)
+        .attr("fill", d => (d.index === q.indexesToCompare[0]) ? "#f04400" : "black");
+
+    svg.append("g")
+        .attr("fill", "#f04400")
+        .selectAll("path")
+        .data(stacked.filter(d => q.indexesToCompare.includes(d.index)))
+        .join("path")
+        .attr("d", d3.symbol().type(d3.symbolTriangle).size(500))
+        .attr("transform", d => `translate(${marginLeft + (barWidth / 2) + 130}, ${y(d.end) + (y(d.start) - y(d.end)) / 2}) rotate(270)`)
+        .attr("fill", d => (d.index === q.indexesToCompare[0]) ? "#f04400" : "black");
+
+    container.append(svg.node());
+
+</script>
