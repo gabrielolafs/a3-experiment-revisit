@@ -1,6 +1,5 @@
 # reVISit study – Interactive, Web-Based User Studies.  
 
-deploy
 
 Create your own interactive, web-based data visualization user studies by cloning/forking and editing configuration files and adding stimuli in the `public` folder. 
 
