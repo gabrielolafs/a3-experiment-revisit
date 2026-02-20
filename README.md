@@ -22,6 +22,10 @@ For our study, we replicated the 1984 Cleveland-McGill study on comparing how in
 ### Stacked bar chart example
 !["Stacked bar chart"](assets/a3-stacked-bar-chart.png)
 
+### Final Rankings
+
+!["Final chart rankings"](assets/final_data.png)
+
 ## Technical Achievements
 - **Object-Oriented Data Organization**: Since the answers to each question is generated upon the user reaching said question, we needed a way to store not only the user's answer, but the data points that were selected and the percentage different of the smaller and larger value. To store all this data at once upon submission, we submit each answered question as an object with these values as attributes.
 - **Questions Generated for Each User**: Instead of hard-coding 60 questions for users filling out the study to answer, our study will generate a question with the specified graph for the user to answer. The two generated data points, the correct percentage difference between the two, and the user's guess are all stored, so no matter what question is generated, we'll be able to gauge the accuracy of an answer. This means that the study could easily be scaled as much as we'd like.
