@@ -1,7 +1,5 @@
 # Cleveland-McGill Replication Study
 
-prey. i am prey. and git is my hunter. the most frustrating gam
-
 ## Github pages link
 https://gabrielolafs.githu.io/a3-experiment-revisit/
 
