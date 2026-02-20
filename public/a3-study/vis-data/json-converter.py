@@ -20,6 +20,14 @@ for file_num in range(1, 11):
     for i in range(60):
         for type in [f'bar-chart_{i + 1}', f'pie-chart_{i + 1}', f'stacked-bar-chart_{i + 1}']:
             try:
+                temp = answers[type]['answer']
+                if '%' in temp["guess-percent"]:
+                    temp["guess-percent"] = temp["guess-percent"].replace("%", '').strip()
+
+                if 'percent' in temp["guess-percent"]:
+                    temp["guess-percent"] = temp["guess-percent"].replace("percent", '').strip()
+
+                # temp = temp.replace('%', '')
                 full_list_of_answers.append(answers[type]['answer'])
             except:
                 pass
